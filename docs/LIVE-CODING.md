@@ -34,7 +34,7 @@ Use Product Design Harness for this session.
 
 Set session_config to:
 {
-  "working_language": "<en|zh-TW|zh-CN|ja|ko|es|fr|de>",
+  "working_language": "<en|zh-TW|zh-CN|ja|ko|es|fr|de|pt>",
   "canonical_identifiers": "en",
   "fallback_language": "en"
 }

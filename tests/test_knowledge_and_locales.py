@@ -104,7 +104,7 @@ REQUIRED_README_TOKENS = [
     "templates/context-pack.md",
     "docs/HARNESS.md",
 ]
-NON_ENGLISH_LOCALES = ["zh-TW", "zh-CN", "ja", "ko", "es", "fr", "de"]
+NON_ENGLISH_LOCALES = ["zh-TW", "zh-CN", "ja", "ko", "es", "fr", "de", "pt"]
 PUBLIC_ENTRY_FILES = [
     "README.md",
     "docs/ADOPTION.md",
@@ -156,6 +156,10 @@ NATIVE_PHRASE_PROBES = {
         "Quelle, Signal, Interpretation, Gegensignal und Entscheidungswirkung",
         "Spurwertungen",
         "steuert Unsicherheit",
+    ],
+    "pt": [
+        "Julgamento de produto verific\xe1vel por m\xe1quina",
+        "Os seis gates s\xe3o Stage, User Flow, Evidence Flow, Business Flow, Council e Human Judgment",
     ],
 }
 FORBIDDEN_LOCALIZATION_PHRASES = {
@@ -258,10 +262,10 @@ class KnowledgeAndLocaleContractTests(unittest.TestCase):
     def test_supported_locales_are_exact(self):
         manifest = load_json("i18n/locales.json")
         self.assertEqual(
-            {"en", "zh-TW", "zh-CN", "ja", "ko", "es", "fr", "de"},
+            {"en", "zh-TW", "zh-CN", "ja", "ko", "es", "fr", "de", "pt"},
             {item["code"] for item in manifest["locales"]},
         )
-        self.assertEqual(8, len(manifest["locales"]))
+        self.assertEqual(9, len(manifest["locales"]))
 
     def test_each_locale_has_a_readme(self):
         for locale in manifest_locales():

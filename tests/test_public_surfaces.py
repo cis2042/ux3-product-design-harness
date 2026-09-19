@@ -308,7 +308,7 @@ class PublicSurfaceTests(unittest.TestCase):
         self.assertIn(">Agent documentation</", html)
         self.assertIn(">Agent working language</", html)
         self.assertIn("Copy one invocation into the agent session.", html)
-        for locale_code in ["en", "zh-TW", "zh-CN", "ja", "ko", "es", "fr", "de"]:
+        for locale_code in ["en", "zh-TW", "zh-CN", "ja", "ko", "es", "fr", "de", "pt"]:
             self.assertIn(f"Working language: {locale_code}.", html)
         self.assertIn('href="docs/LIVE-CODING.md"', html)
         self.assertIn("Live coding workflow", html)

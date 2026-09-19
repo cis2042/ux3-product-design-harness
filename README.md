@@ -27,7 +27,7 @@ dashboard. This is judgment knowledge your agent loads and applies.
 [Simplified Chinese](i18n/zh-CN/README.md) |
 [Japanese](i18n/ja/README.md) | [Korean](i18n/ko/README.md) |
 [Spanish](i18n/es/README.md) | [French](i18n/fr/README.md) |
-[German](i18n/de/README.md)
+[German](i18n/de/README.md) | [Portuguese](i18n/pt/README.md)
 
 **Work in:** copy one invocation into the agent session.
 
@@ -41,7 +41,7 @@ Supported working-language lines: `Working language: en.`,
 `Working language: zh-TW.`, `Working language: zh-CN.`,
 `Working language: ja.`, `Working language: ko.`,
 `Working language: es.`, `Working language: fr.`,
-`Working language: de.`
+`Working language: de.`, `Working language: pt.`
 
 ![Product Design Harness cover](assets/product-design-harness-cover.svg)
 

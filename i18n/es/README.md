@@ -9,7 +9,8 @@ construcción, la salida al mercado y el aprendizaje con usuarios.
 **Read in:** [English](../../README.md) | [繁體中文](../zh-TW/README.md) |
 [简体中文](../zh-CN/README.md) | [日本語](../ja/README.md) |
 [한국어](../ko/README.md) | [Español](README.md) |
-[Français](../fr/README.md) | [Deutsch](../de/README.md)
+[Français](../fr/README.md) | [Deutsch](../de/README.md) |
+[Português](../pt/README.md)
 
 **Work in:** copia esta invocación en la sesión del agente.
 
@@ -45,6 +46,15 @@ la capa de criterio que acompaña todo el ciclo de producto.
 
 ![Posición de Product Design Harness](../../assets/process-comparison.svg)
 
+## Alineación Autónoma de Múltiples Agentes (Autonomous Multi-Agent Alignment)
+
+En equipos de desarrollo multiagente (1 Integrator coordinador + N Workers ejecutores + 1 QC Auditor auditor independiente), este harness actúa como la constitución de límites legible por máquina:
+- **Vía Rápida Sin Bloqueos (Zero-Stall Fast Path)**: Las tareas rutinarias (90%) omiten completamente las puertas de revisión, con cero latencia y cero bloqueos.
+- **Evaluación System One en Menos de un Segundo (Sub-Second System One Gating)**: `scripts/jev_gate.py` evalúa la intención, los niveles de evidencia y los dictámenes de tres carriles en menos de 300 ms sin redactar texto explicativo.
+- **Retención de Contexto Sin Pérdidas (Lossless Context Retention)**: El bloqueo de límites (`may_do` y `must_not_do`) conserva las restricciones negativas intactas a lo largo de sesiones extensas de múltiples turnos.
+
+Consulte [Multi-Agent Alignment](../../docs/MULTI-AGENT-ALIGNMENT.md) para conocer la arquitectura, los contratos de roles y las validaciones piloto.
+
 <!-- why-install -->
 ## Por qué instalarlo
 
@@ -52,7 +62,7 @@ Las reglas de decision se imponen por maquina, no por prosa. Una review mal form
 
 | Afirmación | Dónde verificarla |
 |---|---|
-| Todos los modos comparten `schemas/review-result.schema.json`, uno de los 16 JSON Schemas. | `schemas/review-result.schema.json` |
+| Todos los modos comparten `schemas/review-result.schema.json`, uno de los 18 JSON Schemas. | `schemas/review-result.schema.json` |
 | El idioma de trabajo es explícito y los identificadores canónicos permanecen en inglés. | `schemas/session-config.schema.json` |
 | Las definiciones UX3 y los rule IDs se cargan desde archivos legibles por máquina. | `knowledge/ontology.json`, `knowledge/rules.json` |
 | 21 decision rule cards hacen operativo el kernel; seis conservan procedencia por capítulo. | `knowledge/rules.json`, `knowledge/source-chapters.json`, `docs/DECISION-RULES.md` |

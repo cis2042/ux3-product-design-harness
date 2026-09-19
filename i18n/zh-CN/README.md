@@ -8,7 +8,8 @@
 **Read in:** [English](../../README.md) | [繁體中文](../zh-TW/README.md) |
 [简体中文](README.md) | [日本語](../ja/README.md) |
 [한국어](../ko/README.md) | [Español](../es/README.md) |
-[Français](../fr/README.md) | [Deutsch](../de/README.md)
+[Français](../fr/README.md) | [Deutsch](../de/README.md) |
+[Português](../pt/README.md)
 
 **Work in:** 复制这段到 agent session。
 
@@ -43,6 +44,15 @@ Coding harness 用测试、类型与 CI 保护“怎么做”；Product Design H
 
 ![Product Design Harness 的位置](../../assets/process-comparison.svg)
 
+## 自主多 Agent 对齐 (Autonomous Multi-Agent Alignment)
+
+在多 Agent 开发团队（1 Integrator 主控 + N Workers 执行者 + 1 QC Auditor 独立质检）中，本 harness 作为机器可读的边界宪法：
+- **零停滞快速通道 (Zero-Stall Fast Path)**：例行任务（90%）完全绕过审查闸门，零阻塞、零延迟。
+- **亚秒级 System One 判定 (Sub-Second System One Gating)**：`scripts/jev_gate.py` 在 300ms 内评估意图、证据等级与三轨裁决，不生成冗长散文。
+- **无损上下文记忆保存 (Lossless Context Retention)**：边界锁定（`may_do` 与 `must_not_do`）跨多轮对话完整保留负向约束。
+
+详细架构、角色契约与验证案例请参阅 [Multi-Agent Alignment](../../docs/MULTI-AGENT-ALIGNMENT.md)。
+
 <!-- why-install -->
 ## 为什么安装
 
@@ -50,7 +60,7 @@ Coding harness 用测试、类型与 CI 保护“怎么做”；Product Design H
 
 | 主张 | 验证位置 |
 |---|---|
-| 所有 review mode 共用 `schemas/review-result.schema.json`；repo 内共有 16 份 JSON Schema。 | `schemas/review-result.schema.json` |
+| 所有 review mode 共用 `schemas/review-result.schema.json`；repo 内共有 18 份 JSON Schema。 | `schemas/review-result.schema.json` |
 | 工作语言明确设置，canonical identifiers 保持英文。 | `schemas/session-config.schema.json` |
 | UX3 定义与 rule IDs 从机器文件载入。 | `knowledge/ontology.json`、`knowledge/rules.json` |
 | 21 decision rule cards 将 kernel 变成可执行规则；六张保留章节来源，包括 `ux3.rule.human_agent_interaction` 与 `ux3.rule.motivation_ethics`。 | `knowledge/rules.json`、`knowledge/source-chapters.json`、`docs/DECISION-RULES.md` |

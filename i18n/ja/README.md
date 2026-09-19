@@ -8,7 +8,8 @@
 **Read in:** [English](../../README.md) | [繁體中文](../zh-TW/README.md) |
 [简体中文](../zh-CN/README.md) | [日本語](README.md) |
 [한국어](../ko/README.md) | [Español](../es/README.md) |
-[Français](../fr/README.md) | [Deutsch](../de/README.md)
+[Français](../fr/README.md) | [Deutsch](../de/README.md) |
+[Português](../pt/README.md)
 
 **Work in:** この呼び出しを agent session に貼り付けます。
 
@@ -42,6 +43,15 @@ Coding harness はテスト、型、CI で「どう作るか」を守ります�
 
 ![Product Design Harness の位置](../../assets/process-comparison.svg)
 
+## 自律型マルチ Agent アライメント (Autonomous Multi-Agent Alignment)
+
+マルチ Agent 開発チーム（1 Integrator 統括 + N Workers 実行者 + 1 QC Auditor 独立監査）において、本 harness は機械可読な境界憲法として機能します：
+- **Zero-Stall ファストパス (Zero-Stall Fast Path)**：日常的な保守タスク（90%）はレビューゲートを完全バイパスし、待機時間・ブロッキングをゼロにします。
+- **1秒未満の System One 判定 (Sub-Second System One Gating)**：`scripts/jev_gate.py` が意図、エビデンス階層、3-lane 裁定を 300ms 未満で評価し、不要な散文を生成しません。
+- **無損失コンテキスト保持 (Lossless Context Retention)**：境界ロック（`may_do` と `must_not_do`）により、複数ターンのセッションでも制約事項を完全に維持します。
+
+アーキテクチャ、ロール契約、パイロット検証の詳細は [Multi-Agent Alignment](../../docs/MULTI-AGENT-ALIGNMENT.md) を参照してください。
+
 <!-- why-install -->
 ## インストールする理由
 
@@ -49,7 +59,7 @@ Coding harness はテスト、型、CI で「どう作るか」を守ります�
 
 | 主張 | 検証先 |
 |---|---|
-| 全 mode は 16 schema の一つである `schemas/review-result.schema.json` を共有する。 | `schemas/review-result.schema.json` |
+| 全 mode は 18 schema の一つである `schemas/review-result.schema.json` を共有する。 | `schemas/review-result.schema.json` |
 | 作業言語を明示し、canonical identifiers は英語を維持する。 | `schemas/session-config.schema.json` |
 | UX3 定義と rule IDs は機械可読ファイルから読み込む。 | `knowledge/ontology.json`、`knowledge/rules.json` |
 | 21 decision rule cards が kernel を実行可能にし、六つの新規 rule は章単位の出典を持つ。 | `knowledge/rules.json`、`knowledge/source-chapters.json`、`docs/DECISION-RULES.md` |

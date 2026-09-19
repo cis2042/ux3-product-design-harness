@@ -39,6 +39,11 @@
       "code": "de",
       "label": "German",
       "native_label": "Deutsch"
+    },
+    {
+      "code": "pt",
+      "label": "Portuguese",
+      "native_label": "Português"
     }
   ]
 }

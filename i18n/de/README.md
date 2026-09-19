@@ -9,7 +9,8 @@ und Lernen aus Nutzerfeedback.
 **Read in:** [English](../../README.md) | [繁體中文](../zh-TW/README.md) |
 [简体中文](../zh-CN/README.md) | [日本語](../ja/README.md) |
 [한국어](../ko/README.md) | [Español](../es/README.md) |
-[Français](../fr/README.md) | [Deutsch](README.md)
+[Français](../fr/README.md) | [Deutsch](README.md) |
+[Português](../pt/README.md)
 
 **Work in:** Diese Anweisung in die Agentensitzung kopieren.
 
@@ -45,6 +46,15 @@ Beurteilungsschicht über den gesamten Produktzyklus.
 
 ![Position des Product Design Harness](../../assets/process-comparison.svg)
 
+## Autonome Multi-Agenten-Ausrichtung (Autonomous Multi-Agent Alignment)
+
+In Multi-Agenten-Entwicklungsteams (1 Integrator Koordinator + N Workers Ausführende + 1 QC Auditor unabhängiger Prüfer) dient dieser Harness als maschinenlesbare Grenzverfassung:
+- **Zero-Stall Schnellpfad (Zero-Stall Fast Path)**: Routineaufgaben (90%) umgehen die Prüfgates vollständig, ohne Latenz und ohne Blockieren.
+- **Sub-Sekunden System One Entscheidung (Sub-Second System One Gating)**: `scripts/jev_gate.py` bewertet Intention, Evidenzstufen und die drei Spururteile in unter 300 ms, ohne Prosa zu generieren.
+- **Verlustfreie Kontexterhaltung (Lossless Context Retention)**: Durch Grenzverriegelungen (`may_do` und `must_not_do`) bleiben negative Einschränkungen auch über lange, mehrstufige Sitzungen vollständig erhalten.
+
+Ausführliche Informationen zu Architektur, Rollenverträgen und Pilotvalidierungen finden Sie unter [Multi-Agent Alignment](../../docs/MULTI-AGENT-ALIGNMENT.md).
+
 <!-- why-install -->
 ## Warum installieren
 
@@ -52,7 +62,7 @@ Die Entscheidungsregeln werden maschinell erzwungen, nicht durch Prosa. Eine feh
 
 | Aussage | Prüfstelle |
 |---|---|
-| Alle Modi nutzen `schemas/review-result.schema.json`, eines von 16 JSON Schemas. | `schemas/review-result.schema.json` |
+| Alle Modi nutzen `schemas/review-result.schema.json`, eines von 18 JSON Schemas. | `schemas/review-result.schema.json` |
 | Die Arbeitssprache ist explizit, kanonische Bezeichner bleiben Englisch. | `schemas/session-config.schema.json` |
 | UX3-Definitionen und rule IDs werden aus maschinenlesbaren Dateien geladen. | `knowledge/ontology.json`, `knowledge/rules.json` |
 | 21 decision rule cards operationalisieren den Kernel; sechs besitzen Kapitelprovenienz. | `knowledge/rules.json`, `knowledge/source-chapters.json`, `docs/DECISION-RULES.md` |

@@ -8,7 +8,8 @@
 **Read in:** [English](../../README.md) | [繁體中文](../zh-TW/README.md) |
 [简体中文](../zh-CN/README.md) | [日本語](../ja/README.md) |
 [한국어](README.md) | [Español](../es/README.md) |
-[Français](../fr/README.md) | [Deutsch](../de/README.md)
+[Français](../fr/README.md) | [Deutsch](../de/README.md) |
+[Português](../pt/README.md)
 
 **Work in:** 이 호출문을 agent session 에 복사한다.
 
@@ -42,6 +43,15 @@ Coding harness 는 테스트, 타입, CI 로 "어떻게 만들지"를 지킨다.
 
 ![Product Design Harness 위치](../../assets/process-comparison.svg)
 
+## 자율형 멀티 Agent 정렬 (Autonomous Multi-Agent Alignment)
+
+멀티 Agent 개발 팀(1 Integrator 총괄 + N Workers 실행자 + 1 QC Auditor 독립 감사)에서 본 harness 는 기계 판독 가능한 경계 헌법 역할을 수행합니다:
+- **Zero-Stall 패스트 패스 (Zero-Stall Fast Path)**: 일상적인 유지보수 작업(90%)은 검토 게이트를 완전히 우회하여 대기 시간과 블로킹이 전혀 없습니다.
+- **1초 미만 System One 판정 (Sub-Second System One Gating)**: `scripts/jev_gate.py` 가 의도, 증거 등급, 3-lane 판정을 300ms 이내에 평가하며 산문을 생성하지 않습니다.
+- **무손실 컨텍스트 보존 (Lossless Context Retention)**: 경계 잠금(`may_do` 및 `must_not_do`)을 통해 다회차 턴 세션에서도 부정 제약 조건을 온전히 유지합니다.
+
+자세한 아키텍처, 역할 계약 및 파일럿 검증은 [Multi-Agent Alignment](../../docs/MULTI-AGENT-ALIGNMENT.md) 를 참고하십시오.
+
 <!-- why-install -->
 ## 설치하는 이유
 
@@ -49,7 +59,7 @@ Coding harness 는 테스트, 타입, CI 로 "어떻게 만들지"를 지킨다.
 
 | 주장 | 검증 위치 |
 |---|---|
-| 모든 mode 는 16 schema 중 `schemas/review-result.schema.json` 을 공유한다. | `schemas/review-result.schema.json` |
+| 모든 mode 는 18 schema 중 `schemas/review-result.schema.json` 을 공유한다. | `schemas/review-result.schema.json` |
 | 작업 언어는 명시하고 canonical identifiers 는 영어를 유지한다. | `schemas/session-config.schema.json` |
 | UX3 정의와 rule IDs 는 기계 파일에서 읽는다. | `knowledge/ontology.json`, `knowledge/rules.json` |
 | 21 decision rule cards 가 kernel 을 실행 규칙으로 만들며 새 rule 여섯 개는 장별 출처를 갖는다. | `knowledge/rules.json`, `knowledge/source-chapters.json`, `docs/DECISION-RULES.md` |
