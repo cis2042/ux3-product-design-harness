@@ -174,7 +174,7 @@ class HarnessContractTests(unittest.TestCase):
 
     def test_schema_inventory_has_exact_public_contract_count(self):
         schema_paths = sorted((ROOT / "schemas").glob("*.json"))
-        self.assertEqual(17, len(schema_paths))
+        self.assertEqual(18, len(schema_paths))
 
     def test_schema_readme_inventory_matches_schema_files(self):
         readme = (ROOT / "schemas" / "README.md").read_text(encoding="utf-8")

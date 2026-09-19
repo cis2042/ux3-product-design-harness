@@ -2,9 +2,10 @@
 """Validate a review-result file against the canonical contract AND the
 semantic rules that JSON Schema alone cannot fully express.
 
-Usage: python scripts/check_review.py path/to/review.json
+Usage: python scripts/check_review.py path/to/review.json [--context-pack path/to/pack.json]
 Exit 0 = valid; exit 1 = violations printed to stderr.
 """
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -30,28 +31,33 @@ def expected_weakest_flow(reviews):
     return sorted(reviews, key=sort_key)[0]
 
 
-def check(document):
-    problems = []
+def schema_errors(document, schema_name):
     schema = json.loads(
-        (ROOT / "schemas" / "review-result.schema.json").read_text()
+        (ROOT / "schemas" / schema_name).read_text()
     )
     resources = []
-    for schema_name in ["session-config.schema.json", "actor-boundary.schema.json"]:
-        external_schema = json.loads((ROOT / "schemas" / schema_name).read_text())
+    for external_name in ["session-config.schema.json", "actor-boundary.schema.json"]:
+        external_schema = json.loads((ROOT / "schemas" / external_name).read_text())
         resource = Resource.from_contents(external_schema)
         resources.extend(
             [
                 (external_schema["$id"], resource),
-                (schema_name, resource),
+                (external_name, resource),
                 (
-                    f"https://cis2042.github.io/product-design-harness/schemas/{schema_name}",
+                    f"https://cis2042.github.io/product-design-harness/schemas/{external_name}",
                     resource,
                 ),
             ]
         )
     registry = Registry().with_resources(resources)
-    for error in Draft202012Validator(schema, registry=registry).iter_errors(document):
-        problems.append(f"schema: {error.json_path}: {error.message}")
+    return [
+        f"schema: {error.json_path}: {error.message}"
+        for error in Draft202012Validator(schema, registry=registry).iter_errors(document)
+    ]
+
+
+def check(document):
+    problems = schema_errors(document, "review-result.schema.json")
     if problems:
         return problems
 
@@ -111,12 +117,44 @@ def check(document):
     return problems
 
 
-def main():
-    if len(sys.argv) != 2:
-        print(__doc__, file=sys.stderr)
-        return 1
-    document = json.loads(Path(sys.argv[1]).read_text())
+def check_handoff(document, context_pack):
+    """Validate an entire handoff once; no persistent cache or authorization."""
     problems = check(document)
+    problems.extend(schema_errors(context_pack, "context-pack.schema.json"))
+    if problems:
+        return problems
+    if document["combined_verdict"] != "continue":
+        problems.append("context pack requires a continue review")
+    fields = [
+        "schema_version", "session_config", "review_id", "stage",
+        "combined_verdict", "actor_boundary", "product_organization",
+        "stakeholder_effects", "human_judgment_boundary", "unresolved_assumptions",
+        "execution_boundary", "human_approval_gates", "high_risk_actions",
+        "stop_conditions",
+    ]
+    for field in fields:
+        if context_pack.get(field) != document.get(field):
+            problems.append(f"context pack {field} must match the review")
+    if context_pack.get("evidence_snapshot_ids") != document.get("evidence_receipt_ids"):
+        problems.append("context pack evidence_snapshot_ids must match review evidence_receipt_ids")
+    return problems
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("review")
+    parser.add_argument("--context-pack", help="Validate the review and linked handoff together")
+    args = parser.parse_args()
+    try:
+        document = json.loads(Path(args.review).read_text())
+        if args.context_pack:
+            context_pack = json.loads(Path(args.context_pack).read_text())
+            problems = check_handoff(document, context_pack)
+        else:
+            problems = check(document)
+    except (OSError, ValueError) as error:
+        print(f"cannot read artifact: {error}", file=sys.stderr)
+        return 1
     if problems:
         for problem in problems:
             print(problem, file=sys.stderr)
