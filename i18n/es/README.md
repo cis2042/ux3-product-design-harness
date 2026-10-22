@@ -133,7 +133,7 @@ Las seis puertas son Stage, User Flow, Evidence Flow, Business Flow, Council y H
 Instalación directa en entornos de agentes compatibles:
 
 ```text
-npx skills add cis2042/product-design-harness -g -y
+npx skills add cis2042/ux3-product-design-harness -g -y
 ```
 
 Para inspeccionar y verificar el repo completo:

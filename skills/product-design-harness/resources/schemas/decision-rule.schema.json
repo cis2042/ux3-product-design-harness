@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cis2042.github.io/product-design-harness/schemas/decision-rule.schema.json",
+  "$id": "https://cis2042.github.io/ux3-product-design-harness/schemas/decision-rule.schema.json",
   "title": "UX3 Decision Rule",
   "type": "object",
   "additionalProperties": false,

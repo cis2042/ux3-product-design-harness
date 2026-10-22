@@ -22,6 +22,7 @@ class InstallableBundleTests(unittest.TestCase):
     def test_bundle_contains_the_skill_and_runtime_dependencies(self):
         required_files = [
             "SKILL.md",
+            "LICENSE",
             "resources/requirements-dev.txt",
             "resources/scripts/check_review.py",
             "resources/schemas/review-result.schema.json",
@@ -37,6 +38,7 @@ class InstallableBundleTests(unittest.TestCase):
         skill = (BUNDLE / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("resources/schemas/session-config.schema.json", skill)
         self.assertIn("resources/scripts/check_review.py", skill)
+        self.assertEqual((ROOT / "LICENSE").read_bytes(), (BUNDLE / "LICENSE").read_bytes())
 
     def test_bundle_resources_match_the_canonical_runtime(self):
         for directory in RUNTIME_DIRECTORIES:
@@ -63,7 +65,7 @@ class InstallableBundleTests(unittest.TestCase):
         )
 
     def test_schema_ids_use_the_published_pages_urls(self):
-        published_base = "https://cis2042.github.io/product-design-harness/schemas/"
+        published_base = "https://cis2042.github.io/ux3-product-design-harness/schemas/"
         for schema_path in sorted((ROOT / "schemas").glob("*.schema.json")):
             with self.subTest(schema=schema_path.name):
                 schema = json.loads(schema_path.read_text(encoding="utf-8"))

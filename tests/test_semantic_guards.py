@@ -126,7 +126,7 @@ class CouncilInputExampleTests(unittest.TestCase):
                 (schema.get("$id", path.name), resource),
                 (path.name, resource),
                 (
-                    "https://cis2042.github.io/product-design-harness/schemas/"
+                    "https://cis2042.github.io/ux3-product-design-harness/schemas/"
                     + path.name,
                     resource,
                 ),

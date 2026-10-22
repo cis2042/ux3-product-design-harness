@@ -3,12 +3,12 @@
   "schemaVersion": "1.0",
   "name": "UX3 Product Design Harness",
   "description": "A skill manifest for an installable Agentic Design Process that reviews User Flow, Evidence Flow, and Business Flow while keeping accountable judgment Designer-in-the-Loop. It is not a hosted A2A Agent Card.",
-  "url": "https://cis2042.github.io/product-design-harness/",
-  "repositoryUrl": "https://github.com/cis2042/product-design-harness",
-  "documentationUrl": "https://cis2042.github.io/product-design-harness/answers.md",
+  "url": "https://cis2042.github.io/ux3-product-design-harness/",
+  "repositoryUrl": "https://github.com/cis2042/ux3-product-design-harness",
+  "documentationUrl": "https://cis2042.github.io/ux3-product-design-harness/answers.md",
   "interface": {
     "type": "installable_skill",
-    "installCommand": "npx skills add cis2042/product-design-harness -g -y",
+    "installCommand": "npx skills add cis2042/ux3-product-design-harness -g -y",
     "entryPoint": "skills/product-design-harness/SKILL.md",
     "remoteEndpoint": null
   },

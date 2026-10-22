@@ -82,7 +82,7 @@ class PublicSurfaceTests(unittest.TestCase):
 
     def test_homepage_exposes_canonical_social_and_audience_metadata(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
-        canonical = "https://cis2042.github.io/product-design-harness/"
+        canonical = "https://cis2042.github.io/ux3-product-design-harness/"
         self.assertIn(f'<link rel="canonical" href="{canonical}">', html)
         self.assertIn('<meta property="og:type" content="website">', html)
         self.assertIn(f'<meta property="og:url" content="{canonical}">', html)
@@ -151,7 +151,7 @@ class PublicSurfaceTests(unittest.TestCase):
         self.assertIn("User-agent: *", robots)
         self.assertIn("Allow: /", robots)
         self.assertIn(
-            "Sitemap: https://cis2042.github.io/product-design-harness/sitemap.xml",
+            "Sitemap: https://cis2042.github.io/ux3-product-design-harness/sitemap.xml",
             robots,
         )
 
@@ -161,10 +161,10 @@ class PublicSurfaceTests(unittest.TestCase):
             node.text for node in sitemap.findall("sm:url/sm:loc", namespace)
         }
         self.assertIn(
-            "https://cis2042.github.io/product-design-harness/", locations
+            "https://cis2042.github.io/ux3-product-design-harness/", locations
         )
         self.assertIn(
-            "https://cis2042.github.io/product-design-harness/llms.txt", locations
+            "https://cis2042.github.io/ux3-product-design-harness/llms.txt", locations
         )
 
         card = json.loads(
@@ -221,7 +221,7 @@ class PublicSurfaceTests(unittest.TestCase):
     def test_agent_entrance_exposes_copyable_public_install_command(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         public_command = (
-            "npx skills add cis2042/product-design-harness -g -y"
+            "npx skills add cis2042/ux3-product-design-harness -g -y"
         )
         self.assertGreaterEqual(html.count(public_command), 2)
         self.assertIn('class="install-command"', html)
@@ -244,7 +244,7 @@ class PublicSurfaceTests(unittest.TestCase):
         for path in surfaces:
             with self.subTest(path=str(path.relative_to(ROOT))):
                 self.assertNotIn(
-                    "git@github.com:cis2042/product-design-harness.git",
+                    "git@github.com:cis2042/ux3-product-design-harness.git",
                     path.read_text(encoding="utf-8"),
                 )
                 self.assertNotIn(
@@ -264,7 +264,7 @@ class PublicSurfaceTests(unittest.TestCase):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('class="github-icon"', html)
         self.assertIn(
-            'aria-label="Open cis2042/product-design-harness on GitHub"', html
+            'aria-label="Open cis2042/ux3-product-design-harness on GitHub"', html
         )
         self.assertIn('title="Open repository on GitHub"', html)
 

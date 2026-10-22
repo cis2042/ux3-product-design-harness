@@ -75,7 +75,7 @@ REQUIRED_README_MARKERS = [
     "canonical-contracts",
 ]
 PUBLIC_SKILL_INSTALL_COMMAND = (
-    "npx skills add cis2042/product-design-harness -g -y"
+    "npx skills add cis2042/ux3-product-design-harness -g -y"
 )
 REQUIRED_README_TOKENS = [
     "User Flow",

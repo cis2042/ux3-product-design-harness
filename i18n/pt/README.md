@@ -132,7 +132,7 @@ Os seis gates são Stage, User Flow, Evidence Flow, Business Flow, Council e Hum
 Instale a Skill diretamente em ambientes de agentes compatíveis:
 
 ```text
-npx skills add cis2042/product-design-harness -g -y
+npx skills add cis2042/ux3-product-design-harness -g -y
 ```
 
 Para inspecionar e verificar o repositório completo localmente:

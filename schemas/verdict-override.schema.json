@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cis2042.github.io/product-design-harness/schemas/verdict-override.schema.json",
+  "$id": "https://cis2042.github.io/ux3-product-design-harness/schemas/verdict-override.schema.json",
   "title": "Product Design Harness Verdict Override",
   "description": "Authorizes execution despite a verify or stop_reframe verdict. An override never modifies the review-result: the review's verdict stays on record, and this artifact records who chose to execute anyway, within what scope, until when, and what voids the authorization. Validate with scripts/check_override.py, which also cross-checks the referenced review.",
   "type": "object",

@@ -67,7 +67,7 @@ def contract_validator(relative_path):
                 (external_schema["$id"], resource),
                 (schema_name, resource),
                 (
-                    f"https://cis2042.github.io/product-design-harness/schemas/{schema_name}",
+                    f"https://cis2042.github.io/ux3-product-design-harness/schemas/{schema_name}",
                     resource,
                 ),
             ]

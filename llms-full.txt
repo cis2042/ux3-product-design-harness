@@ -6,9 +6,9 @@
 
 Last reviewed: 2026-07-11
 
-Canonical website: https://cis2042.github.io/product-design-harness/
+Canonical website: https://cis2042.github.io/ux3-product-design-harness/
 
-Source repository: https://github.com/cis2042/product-design-harness
+Source repository: https://github.com/cis2042/ux3-product-design-harness
 
 ## Core Facts
 
@@ -64,7 +64,7 @@ action. A strong business case cannot outvote missing user or evidence support.
 
 ## Install
 
-`npx skills add cis2042/product-design-harness -g -y`
+`npx skills add cis2042/ux3-product-design-harness -g -y`
 
 After installation, ask the agent:
 
