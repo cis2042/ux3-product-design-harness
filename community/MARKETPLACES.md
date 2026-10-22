@@ -50,7 +50,7 @@ successful main-branch workflow artifact for public submissions after merge.
 | skills.sh | https://skills.sh/docs/faq documents automatic discovery through real skills CLI installations. A repository rename can require the new source to be indexed separately. |
 | skills.rest | https://skills.rest/contribute accepts a public GitHub repository or skill-folder URL for screening and indexing. |
 | Skills Directory | https://app.skillsdirectory.com/submit requires sign-in and submission review. |
-| LobeHub | https://lobehub.com/docs/usage/community/become-a-creator describes creator profile, Skills, and Submit Repository. |
+| LobeHub | https://lobehub.com/skills has a public Request a Skill form accepting the GitHub repository URL. Record the queued identifier and verify its detail page after import. The signed-in creator route is documented at https://lobehub.com/docs/usage/community/become-a-creator. |
 
 These targets were selected from publicly stated catalog scale on 2026-10-23.
 Counts have different scopes and are not an independently audited global ranking.
