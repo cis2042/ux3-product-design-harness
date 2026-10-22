@@ -44,7 +44,7 @@ def schema_errors(document, schema_name):
                 (external_schema["$id"], resource),
                 (external_name, resource),
                 (
-                    f"https://cis2042.github.io/product-design-harness/schemas/{external_name}",
+                    f"https://cis2042.github.io/ux3-product-design-harness/schemas/{external_name}",
                     resource,
                 ),
             ]

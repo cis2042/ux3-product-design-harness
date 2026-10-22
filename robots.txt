@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cis2042.github.io/product-design-harness/sitemap.xml
+Sitemap: https://cis2042.github.io/ux3-product-design-harness/sitemap.xml

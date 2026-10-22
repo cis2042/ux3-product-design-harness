@@ -187,8 +187,11 @@ Council, and Human Judgment. See `docs/OPERATING-PROTOCOL.md`.
 Install the Skill directly into supported agent environments:
 
 ```text
-npx skills add cis2042/product-design-harness -g -y
+npx skills add cis2042/ux3-product-design-harness -g -y
 ```
+
+See [Marketplace publication](community/MARKETPLACES.md) for listing metadata,
+submission routes, and the validated GitHub Actions bundle.
 
 To inspect and verify the complete repository locally:
 

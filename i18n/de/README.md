@@ -133,7 +133,7 @@ Die sechs Gates sind Stage, User Flow, Evidence Flow, Business Flow, Council und
 Direkt in unterstützten Agentenumgebungen installieren:
 
 ```text
-npx skills add cis2042/product-design-harness -g -y
+npx skills add cis2042/ux3-product-design-harness -g -y
 ```
 
 Vollständiges Repo prüfen und validieren:

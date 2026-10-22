@@ -132,7 +132,7 @@ contract、收斂到最嚴重的判定、處理不確定性與人類負責的判
 直接安裝到支援的 agent 環境：
 
 ```text
-npx skills add cis2042/product-design-harness -g -y
+npx skills add cis2042/ux3-product-design-harness -g -y
 ```
 
 若要檢查並驗證完整 repo：

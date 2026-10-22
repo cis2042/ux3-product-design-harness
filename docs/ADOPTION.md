@@ -12,7 +12,7 @@ weak assumptions.
 |---|---|
 | 1 | Clone or vendor this repository. It is prompts, schemas, and agent definitions; there is no runtime service to deploy. |
 | 2 | Confirm the copy is intact: `python3 -m venv .venv`, then `.venv/bin/python -m pip install -r requirements-dev.txt`, `.venv/bin/python -m unittest discover -s tests`, `.venv/bin/python scripts/validate.py`, and `.venv/bin/python scripts/check_review.py examples/quick-gate-review.json`. |
-| 3 | Install with `npx skills add cis2042/product-design-harness -g -y`, or copy `skills/product-design-harness/SKILL.md` together with its `resources/` directory into the agent configuration. |
+| 3 | Install with `npx skills add cis2042/ux3-product-design-harness -g -y`, or copy `skills/product-design-harness/SKILL.md` together with its `resources/` directory into the agent configuration. |
 | 4 | Wire `prompts/start-review.md` from a full clone, or `resources/prompts/start-review.md` from an installed skill, as the entry prompt for every product review. It selects Quick Gate, Standard Gate, or UX3 Council. |
 | 5 | Register the reviewer agents from `agents/registry.json` in a full clone, or `resources/agents/registry.json` from an installed skill. Each entry names its instruction file, input schema, and output schema, so any agent runtime can load them. |
 | 6 | Validate every review output with `scripts/check_review.py` in a full clone, or `resources/scripts/check_review.py` from an installed skill, and reject anything invalid. JSON Schema checks shape and conditional branches; `check_review.py` also enforces worst-verdict, weakest-flow, and headline-tier semantics. |

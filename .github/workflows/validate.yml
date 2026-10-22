@@ -50,3 +50,12 @@ jobs:
           python -m pip install -r "$bundle/resources/requirements-dev.txt"
           python "$bundle/resources/scripts/check_review.py" \
             "$bundle/resources/examples/quick-gate-review.json"
+      - name: Package the validated skill
+        working-directory: skills/product-design-harness
+        run: zip -qr "$RUNNER_TEMP/product-design-harness.zip" SKILL.md LICENSE resources -x '*/__pycache__/*' '*.pyc'
+      - name: Upload the marketplace submission bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: product-design-harness-marketplace
+          path: ${{ runner.temp }}/product-design-harness.zip
+          if-no-files-found: error

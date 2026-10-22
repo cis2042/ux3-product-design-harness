@@ -129,7 +129,7 @@ mode 를 고른다.
 지원 agent 환경에 직접 설치한다.
 
 ```text
-npx skills add cis2042/product-design-harness -g -y
+npx skills add cis2042/ux3-product-design-harness -g -y
 ```
 
 전체 repo 를 검사하고 검증하려면:

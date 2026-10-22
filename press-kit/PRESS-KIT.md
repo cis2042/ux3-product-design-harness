@@ -4,7 +4,7 @@ Everything you need to introduce the Product Design Harness to your
 audience. All material here is MIT-licensed: reuse, crop, translate, and
 remix freely. Attribution is appreciated, not required.
 
-Repository: https://github.com/cis2042/product-design-harness
+Repository: https://github.com/cis2042/ux3-product-design-harness
 
 ## What It Is (say it in two lines)
 
@@ -63,10 +63,10 @@ a strong three-post arc about evidence.
 
 ## Key Links
 
-- Repository: https://github.com/cis2042/product-design-harness
+- Repository: https://github.com/cis2042/ux3-product-design-harness
 - Machine entry point: `llms.txt` at the repository root
 - The handbook: `docs/HARNESS.md`; the model: `docs/UX3.md`
-- Install: `npx skills add cis2042/product-design-harness -g -y`
+- Install: `npx skills add cis2042/ux3-product-design-harness -g -y`
 
 ## Design Tokens (for making your own material)
 

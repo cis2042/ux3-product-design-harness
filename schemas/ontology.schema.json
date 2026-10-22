@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cis2042.github.io/product-design-harness/schemas/ontology.schema.json",
+  "$id": "https://cis2042.github.io/ux3-product-design-harness/schemas/ontology.schema.json",
   "title": "UX3 Ontology",
   "type": "object",
   "additionalProperties": false,
