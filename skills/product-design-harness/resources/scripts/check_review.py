@@ -135,6 +135,8 @@ def check_handoff(document, context_pack):
     for field in fields:
         if context_pack.get(field) != document.get(field):
             problems.append(f"context pack {field} must match the review")
+    if context_pack["scope"] != document["execution_boundary"]["may_do"]:
+        problems.append("context pack scope must match review execution_boundary.may_do")
     if context_pack.get("evidence_snapshot_ids") != document.get("evidence_receipt_ids"):
         problems.append("context pack evidence_snapshot_ids must match review evidence_receipt_ids")
     return problems

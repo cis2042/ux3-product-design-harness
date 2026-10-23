@@ -454,7 +454,11 @@ class HarnessContractTests(unittest.TestCase):
         contract_validator("schemas/context-pack.schema.json").validate(context_pack)
 
         execution_boundary = {
-            "may_do": ["implement the approved bounded change"],
+            "may_do": [
+                "Add one visible save-state label to the existing note editor header.",
+                "Use the current save state already available to the editor UI.",
+                "Add or preserve a measurement hook that can compare exit hesitation and save-state support-tag volume.",
+            ],
             "must_not_do": ["expand scope or execute external irreversible actions"],
             "must_ask": ["new stakeholder, data, risk, or scope appears"],
         }

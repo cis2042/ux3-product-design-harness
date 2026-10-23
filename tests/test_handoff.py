@@ -23,6 +23,17 @@ class HandoffTests(unittest.TestCase):
         self.pack["execution_boundary"]["may_do"].append("Add a new workflow.")
         self.assertTrue(any("execution_boundary" in e for e in check_handoff(self.review, self.pack)))
 
+    def test_scope_list_cannot_expand_or_replace_the_reviewed_actions(self):
+        for scope in [
+            self.pack["scope"] + ["Add an analytics dashboard."],
+            ["Redesign the complete onboarding workflow."],
+        ]:
+            with self.subTest(scope=scope):
+                pack = copy.deepcopy(self.pack)
+                pack["scope"] = scope
+                errors = check_handoff(self.review, pack)
+                self.assertTrue(any("scope" in error for error in errors), errors)
+
     def test_identity_evidence_and_controls_cannot_drift(self):
         for field, value in [
             ("review_id", "another-review"),
