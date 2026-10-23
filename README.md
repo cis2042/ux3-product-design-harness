@@ -193,6 +193,20 @@ npx skills add cis2042/ux3-product-design-harness -g -y
 See [Marketplace publication](community/MARKETPLACES.md) for listing metadata,
 submission routes, and the validated GitHub Actions bundle.
 
+### Cursor plugin
+
+The Cursor plugin manifest at `.cursor-plugin/plugin.json` loads the same complete
+`skills/product-design-harness/` directory, including its resources and MIT
+license. For a local Cursor CLI session, pass `--plugin-dir` with this repository's
+absolute path. Then ask the agent to use UX3 for a product decision as shown above.
+Official Marketplace installation is subject to Cursor's review and publication.
+
+The plugin exposes one skill. Reviewer instructions remain resources loaded by
+that skill; the repository's `agents/` documentation is excluded from Cursor
+subagent discovery. Installation does not pre-authorize tools or configure
+credentials. Python and `jsonschema` are required to validate review outputs;
+the optional Jev adapter requires separate operator configuration and consent.
+
 To inspect and verify the complete repository locally:
 
 ```text

@@ -1,0 +1,16 @@
+{
+  "name": "ux3-product-design-harness",
+  "displayName": "UX3 Product Design Harness",
+  "description": "Product judgment across User, Evidence, and Business flows before execution and during the next iteration.",
+  "version": "1.0.0",
+  "author": {
+    "name": "CIS2042"
+  },
+  "homepage": "https://cis2042.github.io/ux3-product-design-harness/",
+  "repository": "https://github.com/cis2042/ux3-product-design-harness",
+  "license": "MIT",
+  "logo": "assets/ux3-logo.jpeg",
+  "keywords": ["product-design", "ux3", "evidence", "decision-making"],
+  "skills": ["./skills/product-design-harness"],
+  "agents": []
+}
