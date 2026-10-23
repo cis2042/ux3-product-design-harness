@@ -60,11 +60,11 @@ def check(override, review, now=None):
         )
 
     banned = {
-        entry.casefold()
+        entry.strip().casefold()
         for entry in review["execution_boundary"]["must_not_do"]
     }
     for entry in override["authorized_scope"]["may_do"]:
-        if entry.casefold() in banned:
+        if entry.strip().casefold() in banned:
             problems.append(
                 "authorized_scope.may_do repeats an entry from the review's "
                 f"execution_boundary.must_not_do: {entry!r}"

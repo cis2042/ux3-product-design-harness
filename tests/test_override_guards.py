@@ -18,7 +18,7 @@ def load_json(relative_path):
     return json.loads((ROOT / relative_path).read_text(encoding="utf-8"))
 
 
-def run_check(override, review):
+def run_check(override, review, script_path="scripts/check_override.py"):
     override_path = ROOT / "tests" / "_override_probe.json"
     review_path = ROOT / "tests" / "_override_review_probe.json"
     override_path.write_text(json.dumps(override), encoding="utf-8")
@@ -27,7 +27,7 @@ def run_check(override, review):
         completed = subprocess.run(
             [
                 sys.executable,
-                str(ROOT / "scripts" / "check_override.py"),
+                str(ROOT / script_path),
                 str(override_path),
                 str(review_path),
             ],
@@ -100,6 +100,39 @@ class OverrideGuardTests(unittest.TestCase):
         code, err = run_check(override, self.review)
         self.assertNotEqual(0, code)
         self.assertIn("must_not_do", err)
+
+    def test_prohibited_actions_reject_surrounding_whitespace(self):
+        banned = self.review["execution_boundary"]["must_not_do"][0]
+        for script_path in [
+            "scripts/check_override.py",
+            "skills/product-design-harness/resources/scripts/check_override.py",
+        ]:
+            for prohibited, permitted in [
+                (banned, " " + banned.upper() + " "),
+                ("\t" + banned + "\n", banned.upper()),
+                ("\u00a0" + banned + "\u00a0", "\n" + banned.upper() + "\t"),
+            ]:
+                with self.subTest(script=script_path, prohibited=prohibited, permitted=permitted):
+                    review = copy.deepcopy(self.review)
+                    review["execution_boundary"]["must_not_do"][0] = prohibited
+                    override = copy.deepcopy(self.override)
+                    override["authorized_scope"]["may_do"].append(permitted)
+                    code, err = run_check(override, review, script_path)
+                    self.assertNotEqual(0, code)
+                    self.assertIn("must_not_do", err)
+
+    def test_distinct_authorized_actions_remain_valid_with_whitespace(self):
+        override = copy.deepcopy(self.override)
+        override["authorized_scope"]["may_do"] = [
+            "\t" + entry + "\n" for entry in override["authorized_scope"]["may_do"]
+        ]
+        for script_path in [
+            "scripts/check_override.py",
+            "skills/product-design-harness/resources/scripts/check_override.py",
+        ]:
+            with self.subTest(script=script_path):
+                code, err = run_check(override, self.review, script_path)
+                self.assertEqual(0, code, err)
 
 
 if __name__ == "__main__":
