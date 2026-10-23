@@ -9,7 +9,7 @@
   "homepage": "https://cis2042.github.io/ux3-product-design-harness/",
   "repository": "https://github.com/cis2042/ux3-product-design-harness",
   "license": "MIT",
-  "logo": "assets/ux3-logo.jpeg",
+  "logo": "assets/ux3-logo.svg",
   "keywords": ["product-design", "ux3", "evidence", "decision-making"],
   "skills": ["./skills/product-design-harness"],
   "agents": []
