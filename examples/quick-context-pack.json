@@ -86,7 +86,7 @@
   ],
   "high_risk_actions": [],
   "stop_conditions": [
-    "People still hesitate after the change.",
+    "People still hesitate after the copy change.",
     "The change requires onboarding scope expansion."
   ],
   "execution_boundary": {
