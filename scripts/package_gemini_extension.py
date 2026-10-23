@@ -22,8 +22,8 @@ def build_package(output_dir):
         ["git", "ls-files", "-z", "--", SKILL_PREFIX], cwd=ROOT
     ).decode("utf-8").split("\0")
     skill_files = sorted(name for name in tracked if name)
-    if len(skill_files) != 91:
-        raise ValueError("Expected the complete 91-file skill")
+    if len(skill_files) != 94:
+        raise ValueError("Expected the complete 94-file skill")
     if (ROOT / "LICENSE").read_bytes() != (ROOT / SKILL_PREFIX / "LICENSE").read_bytes():
         raise ValueError("The original MIT licenses must match")
     entries = sorted(["gemini-extension.json", "LICENSE", *skill_files])

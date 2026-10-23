@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">UX3 Decision Kernel</title>
+  <desc id="desc">User Flow, Business Flow, and Evidence Flow feed a deterministic UX3 Decision Kernel. It validates contracts, reduces to the weakest flow, applies the risk and human judgment gate, and emits one canonical verdict and execution boundary.</desc>
+  <rect width="1200" height="760" fill="#fbfaf7"/>
+  <text x="72" y="78" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800" fill="#1f2933">UX3 Operating Model</text>
+  <text x="72" y="116" font-family="Inter, Arial, sans-serif" font-size="19" fill="#66727a">Three lane verdicts enter. One deterministic decision boundary leaves.</text>
+  <text x="1044" y="82" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#8b5f2a">PLATE 01</text>
+
+  <g stroke="#cfc6b6" stroke-width="3" fill="none">
+    <path d="M238 360 L962 360 L600 620 Z"/>
+    <path d="M238 360 L450 420"/>
+    <path d="M962 360 L750 420"/>
+    <path d="M600 620 L600 553"/>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <circle cx="238" cy="360" r="9" fill="#253b58"/>
+    <text x="132" y="224" font-size="30" font-weight="800" fill="#253b58">User Flow</text>
+    <text x="132" y="256" font-size="17" fill="#66727a">context</text>
+    <text x="132" y="284" font-size="17" fill="#66727a">task</text>
+    <text x="132" y="312" font-size="17" fill="#66727a">friction</text>
+    <text x="132" y="340" font-size="17" fill="#66727a">stated need</text>
+
+    <circle cx="962" cy="360" r="9" fill="#7a4d22"/>
+    <text x="818" y="224" font-size="30" font-weight="800" fill="#7a4d22">Business Flow</text>
+    <text x="846" y="256" font-size="17" fill="#66727a">value</text>
+    <text x="846" y="284" font-size="17" fill="#66727a">stakeholder</text>
+    <text x="846" y="312" font-size="17" fill="#66727a">cost</text>
+    <text x="846" y="340" font-size="17" fill="#66727a">loop</text>
+
+    <circle cx="600" cy="620" r="9" fill="#2f5d59"/>
+    <text x="492" y="678" font-size="30" font-weight="800" fill="#2f5d59">Evidence Flow</text>
+    <text x="452" y="708" font-size="17" fill="#66727a">quote, behavior, log, counter-signal</text>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="450" y="345" width="300" height="208" fill="#1f2933"/>
+    <text x="600" y="378" text-anchor="middle" font-size="16" font-weight="800" letter-spacing="0" fill="#fbfaf7">UX3 DECISION KERNEL</text>
+    <line x1="474" y1="392" x2="726" y2="392" stroke="#52606b" stroke-width="1"/>
+
+    <text x="476" y="420" font-size="12" font-weight="800" fill="#d7a35d">01</text>
+    <text x="510" y="420" font-size="16" font-weight="760" fill="#fbfaf7">Validate</text>
+    <text x="580" y="420" font-size="14" fill="#d8d0c2">contracts</text>
+
+    <text x="476" y="451" font-size="12" font-weight="800" fill="#d7a35d">02</text>
+    <text x="510" y="451" font-size="16" font-weight="760" fill="#fbfaf7">Reduce</text>
+    <text x="573" y="451" font-size="14" fill="#d8d0c2">weakest flow</text>
+
+    <text x="476" y="482" font-size="12" font-weight="800" fill="#d7a35d">03</text>
+    <text x="510" y="482" font-size="16" font-weight="760" fill="#fbfaf7">Gate</text>
+    <text x="551" y="482" font-size="14" fill="#d8d0c2">risk + human call</text>
+
+    <text x="476" y="513" font-size="12" font-weight="800" fill="#d7a35d">04</text>
+    <text x="510" y="513" font-size="16" font-weight="760" fill="#fbfaf7">Emit</text>
+    <text x="551" y="513" font-size="14" fill="#d8d0c2">verdict + boundary</text>
+
+    <line x1="474" y1="528" x2="726" y2="528" stroke="#52606b" stroke-width="1"/>
+    <text x="600" y="546" text-anchor="middle" font-size="11" letter-spacing="0" fill="#d8d0c2">continue  |  verify  |  stop_reframe</text>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760" fill="#1f2933">
+    <text x="600" y="328" text-anchor="middle">Sustainable Value Exchange</text>
+    <text x="318" y="506" text-anchor="middle">Situated Understanding</text>
+    <text x="882" y="506" text-anchor="middle">Viable Learning</text>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#66727a">
+    <text x="600" y="300" text-anchor="middle">User Flow + Business Flow</text>
+    <text x="318" y="532" text-anchor="middle">User Flow + Evidence Flow</text>
+    <text x="882" y="532" text-anchor="middle">Evidence Flow + Business Flow</text>
+  </g>
+</svg>

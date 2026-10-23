@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Product Design Harness and Coding Harness</title>
+  <desc id="desc">A table comparing product direction review with implementation correctness review.</desc>
+  <rect width="1200" height="760" fill="#fbfaf7"/>
+  <text x="72" y="78" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800" fill="#1f2933">Two Harnesses, Two Questions</text>
+  <text x="72" y="116" font-family="Inter, Arial, sans-serif" font-size="19" fill="#66727a">Product Design Harness decides direction; Coding Harness verifies execution.</text>
+  <text x="1044" y="82" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#8b5f2a">PLATE 05</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="72" y="168" width="1056" height="390" fill="#fffdf8" stroke="#cfc6b6" stroke-width="2"/>
+    <line x1="72" y1="250" x2="1128" y2="250" stroke="#cfc6b6" stroke-width="2"/>
+    <line x1="368" y1="168" x2="368" y2="558" stroke="#cfc6b6" stroke-width="2"/>
+    <line x1="748" y1="168" x2="748" y2="558" stroke="#cfc6b6" stroke-width="2"/>
+    <line x1="72" y1="328" x2="1128" y2="328" stroke="#e3dccf" stroke-width="2"/>
+    <line x1="72" y1="406" x2="1128" y2="406" stroke="#e3dccf" stroke-width="2"/>
+    <line x1="72" y1="484" x2="1128" y2="484" stroke="#e3dccf" stroke-width="2"/>
+
+    <text x="392" y="218" font-size="26" font-weight="850" fill="#253b58">Product Design Harness</text>
+    <text x="772" y="218" font-size="26" font-weight="850" fill="#5f6b73">Coding Harness</text>
+
+    <text x="100" y="300" font-size="17" font-weight="760" fill="#8b5f2a">Core question</text>
+    <text x="392" y="300" font-size="19" font-weight="800" fill="#1f2933">Should this be built?</text>
+    <text x="772" y="300" font-size="19" font-weight="800" fill="#1f2933">Was this built correctly?</text>
+
+    <text x="100" y="378" font-size="17" font-weight="760" fill="#8b5f2a">Input</text>
+    <text x="392" y="378" font-size="18" fill="#1f2933">User signal, evidence, trade-off</text>
+    <text x="772" y="378" font-size="18" fill="#1f2933">Spec, codebase, tests, release path</text>
+
+    <text x="100" y="456" font-size="17" font-weight="760" fill="#8b5f2a">Output</text>
+    <text x="392" y="456" font-size="18" fill="#1f2933">Verdict, gate review, context pack</text>
+    <text x="772" y="456" font-size="18" fill="#1f2933">Diff, logs, test result, shipped change</text>
+
+    <text x="100" y="534" font-size="17" font-weight="760" fill="#8b5f2a">Avoids</text>
+    <text x="392" y="534" font-size="18" fill="#1f2933">Polished work on the wrong problem</text>
+    <text x="772" y="534" font-size="18" fill="#1f2933">Broken work on a decided problem</text>
+  </g>
+
+  <rect x="332" y="610" width="536" height="72" fill="#1f2933"/>
+  <text x="600" y="640" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#fbfaf7">The context pack is the bridge.</text>
+  <text x="600" y="668" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#d8d0c2">It turns product judgment into executable constraint.</text>
+</svg>
