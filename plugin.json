@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ux3-product-design-harness",
+  "version": "0.2.0",
+  "description": "Product judgment across User, Evidence, and Business flows before execution and during the next iteration.",
+  "author": {
+    "name": "CIS2042"
+  },
+  "homepage": "https://cis2042.github.io/ux3-product-design-harness/",
+  "repository": "https://github.com/cis2042/ux3-product-design-harness",
+  "license": "MIT",
+  "keywords": ["product-design", "ux3", "evidence", "decision-making"]
+}
