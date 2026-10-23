@@ -207,6 +207,21 @@ subagent discovery. Installation does not pre-authorize tools or configure
 credentials. Python and `jsonschema` are required to validate review outputs;
 the optional Jev adapter requires separate operator configuration and consent.
 
+### Privacy and data handling
+
+Reviews and context packs can contain names, stakeholders, and other personal
+data supplied by the user. These local files remain under the user's control;
+UX3 has no publisher-operated service receiving or retaining review data.
+
+The [evidence retrieval contract](docs/ORCHESTRATION.md#evidence-retrieval-contract)
+allows the host agent to send task-specific requests to user-authorized search,
+connectors, or other evidence tools. Destinations and data handling depend on the
+tools selected by the user and host; the plugin configures no fixed external
+endpoint or credentials. Share only the data needed for the named claim within
+the approved tool boundary. The bundled `jev_gate.py` runs offline; connecting a
+remote decision service requires separate operator configuration and consent.
+The host agent and any selected services apply their own data policies.
+
 To inspect and verify the complete repository locally:
 
 ```text
