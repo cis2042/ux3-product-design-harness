@@ -90,9 +90,9 @@ before building; it is the judgment layer that runs across the loop.
 ## Autonomous Multi-Agent Alignment
 
 In multi-agent development teams (1 Integrator + N Workers + 1 QC Auditor), this harness serves as the machine-readable boundary constitution:
-- **Zero-Stall Fast Path**: Routine tasks (90%) bypass review gates completely with zero blocking and zero latency.
-- **Sub-Second System One Gating**: `scripts/jev_gate.py` evaluates intent, evidence tiers, and 3-lane verdicts in under 300ms without generating prose.
-- **Lossless Context Retention**: Boundary locks (`may_do` and `must_not_do`) preserve negative constraints across long multi-turn sessions.
+- **Advisory Routing**: Routine classification selects the smallest responsible review mode and never bypasses review.
+- **Validated Boundaries**: `scripts/jev_gate.py` returns execution boundaries only from a canonical review; `continue` also requires its matching context pack.
+- **Explicit Handoff Controls**: Allowed actions, prohibitions, escalation conditions, human approval gates, and stop conditions survive boundary extraction unchanged.
 
 Read [Multi-Agent Alignment](docs/MULTI-AGENT-ALIGNMENT.md) for architecture, role contracts, and pilot validations.
 

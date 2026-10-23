@@ -59,10 +59,14 @@ class InstallableBundleTests(unittest.TestCase):
             (ROOT / "requirements-dev.txt").read_bytes(),
             (RESOURCES / "requirements-dev.txt").read_bytes(),
         )
-        self.assertEqual(
-            (ROOT / "scripts" / "check_review.py").read_bytes(),
-            (RESOURCES / "scripts" / "check_review.py").read_bytes(),
-        )
+        bundled_scripts = sorted((RESOURCES / "scripts").glob("*.py"))
+        self.assertTrue(bundled_scripts)
+        for bundled_script in bundled_scripts:
+            with self.subTest(script=bundled_script.name):
+                self.assertEqual(
+                    (ROOT / "scripts" / bundled_script.name).read_bytes(),
+                    bundled_script.read_bytes(),
+                )
 
     def test_schema_ids_use_the_published_pages_urls(self):
         published_base = "https://cis2042.github.io/ux3-product-design-harness/schemas/"
