@@ -1,0 +1,92 @@
+name: Gemini extension
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the reviewed current main as v0.2.0
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.x"
+      - run: python -m unittest discover -s tests -p test_gemini_extension.py -v
+      - run: python scripts/package_gemini_extension.py --output-dir "$RUNNER_TEMP/gemini-extension"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: gemini-extension
+          path: ${{ runner.temp }}/gemini-extension/
+          if-no-files-found: error
+          retention-days: 14
+
+  release:
+    if: github.event_name == 'workflow_dispatch' && inputs.publish
+    needs: package
+    runs-on: ubuntu-latest
+    concurrency: gemini-extension-release
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: gemini-extension
+          path: gemini-extension
+      - name: Require successful current main and an unused version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          test "$GITHUB_REF" = refs/heads/main
+          current_main=$(gh api "repos/$GH_REPO/commits/main" --jq .sha)
+          test "$current_main" = "$GITHUB_SHA"
+          gh api "repos/$GH_REPO/actions/runs?head_sha=$GITHUB_SHA&status=success&per_page=100" > successful-runs.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          runs = json.loads(Path("successful-runs.json").read_text())["workflow_runs"]
+          successful = {run["name"] for run in runs if run["event"] == "push" and run["conclusion"] == "success"}
+          if not {"Validate", "Gemini extension"}.issubset(successful):
+              raise SystemExit("Current main must pass Validate and Gemini extension on push")
+          PY
+          matching_tags=$(gh api "repos/$GH_REPO/git/matching-refs/tags/v0.2.0" --jq length)
+          test "$matching_tags" = 0
+          matching_releases=$(gh api "repos/$GH_REPO/releases?per_page=100" --paginate --jq '.[] | select(.tag_name == "v0.2.0") | .id')
+          test -z "$matching_releases"
+      - name: Publish the verified single generic archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          root = Path("gemini-extension")
+          receipt = json.loads((root / "gemini-extension-provenance.json").read_text())
+          archive = root / receipt["archive"]
+          if receipt["source_commit"] != os.environ["GITHUB_SHA"] or receipt["version"] != "0.2.0":
+              raise SystemExit("Artifact provenance does not match this release")
+          if hashlib.sha256(archive.read_bytes()).hexdigest() != receipt["archive_sha256"]:
+              raise SystemExit("Archive digest mismatch")
+          Path("release-notes.md").write_text(
+              "Gemini CLI extension containing the complete 91-file UX3 skill and original MIT license.\n\n"
+              + "Source commit: " + receipt["source_commit"] + "\n\n"
+              + "Archive SHA256: " + receipt["archive_sha256"] + "\n"
+          )
+          PY
+          current_main=$(gh api "repos/$GH_REPO/commits/main" --jq .sha)
+          test "$current_main" = "$GITHUB_SHA"
+          gh release create v0.2.0 gemini-extension/ux3-product-design-harness-gemini-0.2.0.zip --target "$GITHUB_SHA" --title "UX3 Gemini extension v0.2.0" --notes-file release-notes.md --latest
