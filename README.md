@@ -218,8 +218,8 @@ allows the host agent to send task-specific requests to user-authorized search,
 connectors, or other evidence tools. Destinations and data handling depend on the
 tools selected by the user and host; the plugin configures no fixed external
 endpoint or credentials. Share only the data needed for the named claim within
-the approved tool boundary. The optional Jev adapter requires separate operator
-configuration and consent before sending data to a configured decision service.
+the approved tool boundary. The bundled `jev_gate.py` runs offline; connecting a
+remote decision service requires separate operator configuration and consent.
 The host agent and any selected services apply their own data policies.
 
 To inspect and verify the complete repository locally:
