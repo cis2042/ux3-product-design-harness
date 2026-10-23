@@ -207,6 +207,35 @@ subagent discovery. Installation does not pre-authorize tools or configure
 credentials. Python and `jsonschema` are required to validate review outputs;
 the optional Jev adapter requires separate operator configuration and consent.
 
+### Gemini CLI extension
+
+The Gemini extension packages the complete 91-file skill and original MIT license.
+Its archive contains no root agents, MCP servers, hooks, or global context files.
+Installation does not pre-authorize tools. Python and `jsonschema` are required
+to validate review outputs; the optional Jev adapter requires separate operator
+configuration and consent.
+
+The native extension is being prepared for release. Until the GitHub Actions
+release is published, the default repository install still selects the older
+release, which is not a Gemini extension. To inspect a candidate, download the
+`gemini-extension` artifact from its successful GitHub Actions run, verify its
+provenance receipt, and extract the extension ZIP into a local directory. Install
+that extracted directory with `gemini extensions install <extracted-directory>`
+and review the confirmation prompt. Use `gemini extensions list` to inspect it.
+The extension exposes the `product-design-harness` skill on demand rather than
+injecting its instructions into every session.
+
+After publication, the native repository command is
+`gemini extensions install https://github.com/cis2042/ux3-product-design-harness`.
+GitHub Actions is the only release path; gallery indexing remains subject to
+the official crawler. A candidate artifact does not establish a public listing.
+
+Disable the extension in the current workspace with
+`gemini extensions disable ux3-product-design-harness --scope workspace`,
+or remove it with `gemini extensions uninstall ux3-product-design-harness`.
+These commands affect Gemini CLI configuration; they do not revoke permissions
+that the user independently granted to the host.
+
 ### Privacy and data handling
 
 Reviews and context packs can contain names, stakeholders, and other personal
