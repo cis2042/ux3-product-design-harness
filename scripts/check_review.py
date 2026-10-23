@@ -109,6 +109,12 @@ def check(document):
 
     if document.get("mode") == "ux3_council":
         challenges = document.get("council_record", {}).get("challenges", [])
+        if len(challenges) != 3 or {challenge["reviewer"] for challenge in challenges} != {
+            "user_flow", "evidence_flow", "business_flow"
+        }:
+            problems.append(
+                "council challenge round must include exactly one reviewer per flow"
+            )
         if not any(ch.get("objection_to") != "none" for ch in challenges):
             problems.append(
                 "council challenge round is vacuous: at least one challenge "
