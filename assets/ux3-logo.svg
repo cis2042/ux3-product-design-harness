@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="ux3-logo-title">
+  <title id="ux3-logo-title">UX3</title>
+  <rect width="200" height="200" fill="#fff"/>
+  <g fill="#000">
+    <path d="M26 73H34V109C34 120 39.5 126 49.5 126S65.5 120 65.5 109V73H73.5V109C73.5 124.8 64.4 133.5 49.5 133.5S26 124.7 26 109Z"/>
+    <path d="M82 73H91.2L107.2 96.9L123.1 73H132.3L111.8 103L132.5 133H123.3L107.2 109.3L91.1 133H81.8L102.5 103Z"/>
+    <path d="M139 73H187V80.5H139ZM139 99H162V106.5H139ZM164 99H187V106.5H164ZM139 125H187V132.5H139Z"/>
+  </g>
+</svg>
