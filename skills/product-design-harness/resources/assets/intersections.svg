@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">UX3 intersection notes</title>
+  <desc id="desc">Three UX3 intersections: Situated Understanding, Sustainable Value Exchange, and Viable Learning.</desc>
+  <rect width="1200" height="760" fill="#fbfaf7"/>
+  <text x="72" y="78" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800" fill="#1f2933">Intersection Notes</text>
+  <text x="72" y="116" font-family="Inter, Arial, sans-serif" font-size="19" fill="#66727a">UX3 becomes useful where two dimensions test each other.</text>
+  <text x="1044" y="82" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#8b5f2a">PLATE 02</text>
+
+  <line x1="72" y1="158" x2="1128" y2="158" stroke="#d8d0c2" stroke-width="2"/>
+  <line x1="424" y1="158" x2="424" y2="648" stroke="#d8d0c2" stroke-width="2"/>
+  <line x1="776" y1="158" x2="776" y2="648" stroke="#d8d0c2" stroke-width="2"/>
+  <line x1="72" y1="648" x2="1128" y2="648" stroke="#d8d0c2" stroke-width="2"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(96 204)">
+      <text x="0" y="0" font-size="13" font-weight="700" fill="#8b5f2a">I</text>
+      <text x="0" y="42" font-size="29" font-weight="800" fill="#253b58">Situated Understanding</text>
+      <text x="0" y="76" font-size="16" font-weight="700" fill="#66727a">User Flow + Evidence Flow</text>
+      <line x1="0" y1="108" x2="280" y2="108" stroke="#d8d0c2" stroke-width="2"/>
+      <text x="0" y="152" font-size="19" fill="#1f2933">Stated opinion or quote</text>
+      <text x="0" y="188" font-size="19" fill="#1f2933">Observed behavior</text>
+      <text x="0" y="224" font-size="19" fill="#1f2933">Repeated workaround</text>
+      <text x="0" y="260" font-size="19" fill="#1f2933">Friction with consequence</text>
+      <text x="0" y="338" font-size="16" font-weight="700" fill="#253b58">Decision test</text>
+      <text x="0" y="368" font-size="18" fill="#66727a">Does what people say</text>
+      <text x="0" y="396" font-size="18" fill="#66727a">connect to what they do?</text>
+    </g>
+
+    <g transform="translate(448 204)">
+      <text x="0" y="0" font-size="13" font-weight="700" fill="#8b5f2a">II</text>
+      <text x="0" y="42" font-size="29" font-weight="800" fill="#7a4d22">Sustainable Value Exchange</text>
+      <text x="0" y="76" font-size="16" font-weight="700" fill="#66727a">User Flow + Business Flow</text>
+      <line x1="0" y1="108" x2="280" y2="108" stroke="#d8d0c2" stroke-width="2"/>
+      <text x="0" y="152" font-size="19" fill="#1f2933">User gain</text>
+      <text x="0" y="188" font-size="19" fill="#1f2933">User cost</text>
+      <text x="0" y="224" font-size="19" fill="#1f2933">Captured value</text>
+      <text x="0" y="260" font-size="19" fill="#1f2933">Fairness boundary</text>
+      <text x="0" y="338" font-size="16" font-weight="700" fill="#7a4d22">Decision test</text>
+      <text x="0" y="368" font-size="18" fill="#66727a">Does the exchange earn</text>
+      <text x="0" y="396" font-size="18" fill="#66727a">adoption, trust, or payment?</text>
+    </g>
+
+    <g transform="translate(800 204)">
+      <text x="0" y="0" font-size="13" font-weight="700" fill="#8b5f2a">III</text>
+      <text x="0" y="42" font-size="29" font-weight="800" fill="#2f5d59">Viable Learning</text>
+      <text x="0" y="76" font-size="16" font-weight="700" fill="#66727a">Evidence Flow + Business Flow</text>
+      <line x1="0" y1="108" x2="280" y2="108" stroke="#d8d0c2" stroke-width="2"/>
+      <text x="0" y="152" font-size="19" fill="#1f2933">Demand signal</text>
+      <text x="0" y="188" font-size="19" fill="#1f2933">Cost structure</text>
+      <text x="0" y="224" font-size="19" fill="#1f2933">Retention clue</text>
+      <text x="0" y="260" font-size="19" fill="#1f2933">Failure condition</text>
+      <text x="0" y="338" font-size="16" font-weight="700" fill="#2f5d59">Decision test</text>
+      <text x="0" y="368" font-size="18" fill="#66727a">Can the signal become</text>
+      <text x="0" y="396" font-size="18" fill="#66727a">sustainable value?</text>
+    </g>
+  </g>
+</svg>

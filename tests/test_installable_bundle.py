@@ -1,5 +1,8 @@
 import json
+import re
+import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 
 
@@ -19,6 +22,39 @@ RUNTIME_DIRECTORIES = [
 
 
 class InstallableBundleTests(unittest.TestCase):
+    def test_packaged_document_images_resolve_without_repository_assets(self):
+        expected_images = {
+            "ux3-model.svg",
+            "intersections.svg",
+            "product-vs-coding-harness.svg",
+            "harness-sequence.svg",
+            "decision-gate.svg",
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            archive_path = Path(temporary) / "skill.zip"
+            with zipfile.ZipFile(archive_path, "w") as archive:
+                for path in BUNDLE.rglob("*"):
+                    if path.is_file():
+                        archive.write(path, path.relative_to(BUNDLE))
+            installed = (Path(temporary) / "installed").resolve()
+            with zipfile.ZipFile(archive_path) as archive:
+                archive.extractall(installed)
+            resolved_images = set()
+            for document in (installed / "resources" / "docs").glob("*.md"):
+                for reference in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", document.read_text()):
+                    if "://" in reference:
+                        continue
+                    image = (document.parent / reference).resolve()
+                    with self.subTest(document=document.name, reference=reference):
+                        self.assertTrue(image.is_relative_to(installed))
+                        self.assertTrue(image.is_file())
+                        self.assertEqual(
+                            (ROOT / "assets" / image.name).read_bytes(),
+                            image.read_bytes(),
+                        )
+                    resolved_images.add(image.name)
+            self.assertEqual(expected_images, resolved_images)
+
     def test_bundle_contains_the_skill_and_runtime_dependencies(self):
         required_files = [
             "SKILL.md",

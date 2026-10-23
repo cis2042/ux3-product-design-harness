@@ -15,10 +15,10 @@ class GeminiExtensionTests(unittest.TestCase):
             archive = Path(temporary) / receipt["archive"]
             with zipfile.ZipFile(archive) as bundle:
                 names = bundle.namelist()
-                self.assertEqual(93, len(names))
+                self.assertEqual(96, len(names))
                 self.assertEqual(len(names), len(set(names)))
                 skill_files = [name for name in names if name.startswith("skills/")]
-                self.assertEqual(91, len(skill_files))
+                self.assertEqual(94, len(skill_files))
                 self.assertEqual({"gemini-extension.json", "LICENSE"}, set(names) - set(skill_files))
                 for name in names:
                     with self.subTest(path=name):
