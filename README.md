@@ -230,7 +230,8 @@ After publication, the native repository command is
 GitHub Actions is the only release path; gallery indexing remains subject to
 the official crawler. A candidate artifact does not establish a public listing.
 
-Disable the extension with `gemini extensions disable ux3-product-design-harness`
+Disable the extension in the current workspace with
+`gemini extensions disable ux3-product-design-harness --scope workspace`,
 or remove it with `gemini extensions uninstall ux3-product-design-harness`.
 These commands affect Gemini CLI configuration; they do not revoke permissions
 that the user independently granted to the host.
