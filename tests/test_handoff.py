@@ -53,13 +53,17 @@ class HandoffTests(unittest.TestCase):
 
     def test_single_invocation_supports_installed_bundle(self):
         for base in [ROOT, ROOT / "skills/product-design-harness/resources"]:
-            with self.subTest(base=base):
-                result = subprocess.run([
-                    sys.executable, str(base / "scripts/check_review.py"),
-                    str(base / "examples/live-coding-review.json"),
-                    "--context-pack", str(base / "examples/live-coding-context-pack.json"),
-                ], capture_output=True, text=True)
-                self.assertEqual(0, result.returncode, result.stderr)
+            for review, pack in [
+                ("live-coding-review.json", "live-coding-context-pack.json"),
+                ("quick-gate-review.json", "quick-context-pack.json"),
+            ]:
+                with self.subTest(base=base, review=review):
+                    result = subprocess.run([
+                        sys.executable, str(base / "scripts/check_review.py"),
+                        str(base / "examples" / review),
+                        "--context-pack", str(base / "examples" / pack),
+                    ], capture_output=True, text=True)
+                    self.assertEqual(0, result.returncode, result.stderr)
 
 
 if __name__ == "__main__":
